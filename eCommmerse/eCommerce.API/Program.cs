@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 using eCommerce.API.Middlewares;
 using eCommerce.Core;
 using eCommerce.Infrastructure;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,8 @@ builder.Services.AddSingleton<ExceptionHandlingMiddleware>();
 builder.Services
     .AddInfrastructureServices()
     .AddCoreServices();
+
+builder.Services.AddFluentValidationAutoValidation();
 
 var app = builder.Build();
 

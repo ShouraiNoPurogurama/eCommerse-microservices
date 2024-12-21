@@ -2,6 +2,9 @@
 using eCommerce.Core.MapsterConfig;
 using eCommerce.Core.ServiceContracts;
 using eCommerce.Core.Services;
+using eCommerce.Core.Validators;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Mapster;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,6 +21,7 @@ public static class DependencyInjection
     {
         services.AddScoped<IUserService, UsersService>();
         services.RegisterMapsterConfiguration();
+        services.AddValidatorsFromAssemblyContaining<LoginRequestValidator>();
         TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetExecutingAssembly());
         return services;
     }
