@@ -1,9 +1,3 @@
-using System.Text.Json.Serialization;
-using eCommerce.API.Middlewares;
-using eCommerce.Core;
-using eCommerce.Infrastructure;
-using FluentValidation.AspNetCore;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
