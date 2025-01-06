@@ -4,8 +4,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 //Add DEL and BLL services
 builder.Services
-    .AddBusinessLayer()
-    .AddDataAccessLayer();
+    .AddDataAccessLayer(builder.Configuration);
+
+builder.Services.AddBusinessLayer();
 
 builder.Services.AddControllers();
 
